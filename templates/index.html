@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+form {
+    margin: auto;
+    width: 60%;
+}
+
+.result {
+    margin: auto;
+    width: 60%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <h1>This is the WEB API Test for NER Tagging</h1>
+    <body>
+        <img src={{ data_template }}>
+    <h2>This is the example of input</h2>
+    </body>    
+</head>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+
+ 
+  <!-- <label>Choose the tasks:</label>
+  <select name="tasks" id="tasks">
+    <option value="SS">Sentence Segmentation</option>
+    <option value="NER">Name Entity Recognition</option>
+  </select> -->
+
+
+
+    <label>Choose the tasks:</label>
+        <select name = task method='GET' action = '/'>
+            {% for task in tasks %}
+                <option value= "{{ task }}">task</option>"
+            {% endfor %} 
+        </select>
+    <!-- <form action = "/display" method = "POST"  -->
+    <form action = "{{ url_for('main') }}" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <br><br>
+         <input type = "submit"/>
+         <input type = "reset"/>
+      </form>  
+</body>
+</html>

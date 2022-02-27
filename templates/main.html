@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 60%;
+}
+
+.result {
+    margin: auto;
+    width: 60%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Name Entity Recognition Model</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <!-- <fieldset>
+        <legend>Input values:</legend>
+        Sentence:
+        <input name="sentence" type="string" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset> -->
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+    	{% for variable, value in original_input.items() %}
+    		<b>{{ variable }}</b> : {{ value }}
+    	{% endfor %}
+		<br>
+    	<br> <p style = "font-size:50px">Predicted the NER tags:</p>
+   		<p style="font-size:30px">{{ result }}</p>
+    {% endif %}
+</div>
+
+</html>
