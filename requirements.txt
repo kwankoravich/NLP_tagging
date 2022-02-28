@@ -2,4 +2,4 @@ flask
 pandas
 gunicorn
 python-crfsuite
-nltk
+nltk.tag.CRFTagger
