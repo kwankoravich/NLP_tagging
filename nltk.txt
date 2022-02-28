@@ -1,1 +1,1 @@
-tag.CRFTagger
+wordnet
