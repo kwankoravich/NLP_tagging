@@ -11,7 +11,7 @@ app = Flask(__name__, template_folder='templates')
 with open(f'model/crf_ner.tagger', 'rb') as m:
     ct = CRFTagger()
     # ct = sklearn_crfsuite.CRF()
-    ct.set_model_file('/home/superai2-279/webapp/model/crf_ner.tagger')
+    ct.set_model_file('/model/crf_ner.tagger')
 
 # with open(f'model/crf_sentence.tagger', 'rb') as m:
 #     ct = CRFTagger()
