@@ -7,6 +7,7 @@ import os
 from nltk.tag import CRFTagger
 from logging import FileHandler,WARNING
 
+app = Flask(__name__, template_folder='templates')
 with open(f'model/crf_ner.tagger', 'rb') as m:
     ct = CRFTagger()
     # ct = sklearn_crfsuite.CRF()
@@ -17,7 +18,7 @@ with open(f'model/crf_ner.tagger', 'rb') as m:
 #     # ct = sklearn_crfsuite.CRF()
 #     ct.set_model_file('/home/superai2-279/webapp/model/crf_sentence.tagger')
 
-app = Flask(__name__, template_folder='templates')
+# app = Flask(__name__, template_folder='templates')
 file_handler = FileHandler('errorlog.txt')
 file_handler.setLevel(WARNING)
 # @app.route('/')
