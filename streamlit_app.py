@@ -11,8 +11,8 @@ import pandas as pd
 # from charts import *
 # from models import ModelRunner
 import warnings
-from sklearn.exceptions import DataConversionWarning
-warnings.filterwarnings(action='ignore', category=DataConversionWarning)
+# from sklearn.exceptions import DataConversionWarning
+# warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 # https://towardsdev.com/build-and-deploy-streamlit-app-dca682aa6acb
 
