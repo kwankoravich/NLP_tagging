@@ -4,3 +4,4 @@ gunicorn
 python-crfsuite
 nltk
 streamlit
+numpy
