@@ -47,21 +47,23 @@ if model_choice == 'Sentence Segmentation':
                 
                 #Prediction
                 preds_list = []
-
+                raw_test_data = []
                 # bytes_data = uploaded_file.getvalue()
                 # st.write(bytes_data[0])
 
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
                 test_data = stringio.read()
                 # st.text(test_data[:10])
-                # for sent in test_data:
-                for sent in stringio.read():
+                for sent in test_data:
+                # for sent in stringio.read():
                         # st.text(sent)
                         sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         preds_list.extend(sent_preds)
-                st.text(preds_list[:10])
-                raw_test_data = [x for x in [s[0] for s in sent]]
-                st.text(raw_test_data[:10])
+                # st.text(preds_list[:10])
+                # raw_test_data = [x for x in [s[0] for s in sent]]
+                        raw_data = [x for x in [s[0] for s in sent]]
+                        raw_test_data.extend(raw_data)
+                # st.text(raw_test_data[:10])
                 preds_list = list(zip(raw_test_data, preds_list))
                 # st.text(preds_list)
                 for text in preds_list[:10]:
