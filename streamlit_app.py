@@ -27,8 +27,10 @@ st.sidebar.subheader('File Upload')
 
 model_choice = st.sidebar.selectbox('Select Prediction Model', ['Sentence Segmentation', 'Name Entity Recognition'], key = '1')
 
+
+
 if model_choice == 'Sentence Segmentation':
-        uploaded_file = st.file_uploader(label = 'Upload your file, in .txt format', type = ['txt'])
+        uploaded_file = st.file_uploader(label = 'Upload your file, in .txt format')
         if uploaded_file is not None:
                 file_details = {"FileName": uploaded_file.name, "FileType": uploaded_file.type}
                 st.write(file_details)
@@ -43,7 +45,7 @@ if model_choice == 'Sentence Segmentation':
                 
                 #Prediction
                 preds_list = []
-                test_data = uploaded_file
+                test_data = uploaded_file.read()
                 for sent in test_data:
                         sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         preds_list.extend(sent_preds)
@@ -54,7 +56,7 @@ if model_choice == 'Sentence Segmentation':
 
 
 if model_choice == 'Name Entity Recognition':
-        uploaded_file = st.file_uploader(label = 'Upload your file, in .txt format', type = ['txt'])
+        uploaded_file = st.file_uploader(label = 'Upload your file, in .txt format')
         if uploaded_file is not None:
                 file_details = {"FileName": uploaded_file.name, "FileType": uploaded_file.type}
                 st.write(file_details)
@@ -69,7 +71,7 @@ if model_choice == 'Name Entity Recognition':
                 
                 #Prediction
                 preds_list = []
-                test_data = uploaded_file
+                test_data = uploaded_file.read()
                 for sent in test_data:
                         sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         preds_list.extend(sent_preds)
