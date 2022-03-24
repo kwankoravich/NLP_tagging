@@ -36,7 +36,7 @@ if model_choice == 'Sentence Segmentation':
                 st.info("Press Predict button to show the tagging")
         submit = st.button('Predict')
         if submit:
-                st.ballons()
+                # st.ballons()
                 ct = CRFTagger()
                 # ct = sklearn_crfsuite.CRF()
                 ct.set_model_file('model/crf_sentence.tagger')
