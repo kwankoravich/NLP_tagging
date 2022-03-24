@@ -47,6 +47,10 @@ if model_choice == 'Sentence Segmentation':
                 
                 #Prediction
                 preds_list = []
+                
+                bytes_data = uploaded_file.getvalue()
+                st.write(bytes_data[0])
+
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
                 test_data = stringio.read()
                 st.text(test_data[0])
