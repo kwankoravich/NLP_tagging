@@ -59,7 +59,7 @@ if model_choice == 'Sentence Segmentation':
                         # st.text(sent)
                         # sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         # preds_list.extend(sent_preds)
-                st.text([x for x in ct.tag([test_data])])
+                st.text([x[0] for x in ct.tag([test_data])])
                 # st.text(preds_list[:10])
                 # raw_test_data = [x for x in [s[0] for s in sent]]
                         # raw_data = [x for x in [s[0] for s in sent]]
