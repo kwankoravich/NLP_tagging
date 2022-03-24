@@ -2,6 +2,8 @@ from distutils.command.upload import upload
 from app import upload_file
 import pycrfsuite
 import os
+
+from io import StringIO
 # import sklearn_crfsuite
 from nltk.tag import CRFTagger
 
@@ -45,7 +47,8 @@ if model_choice == 'Sentence Segmentation':
                 
                 #Prediction
                 preds_list = []
-                test_data = uploaded_file.read()
+                stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+                test_data = stringio.read()
                 st.text(test_data[0])
                 for sent in test_data:
                         st.text(sent)
@@ -73,7 +76,8 @@ if model_choice == 'Name Entity Recognition':
                 
                 #Prediction
                 preds_list = []
-                test_data = uploaded_file.read()
+                stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+                test_data = stringio.read()
                 for sent in test_data:
                         sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         preds_list.extend(sent_preds)
