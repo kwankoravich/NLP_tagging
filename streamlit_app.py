@@ -47,7 +47,7 @@ if model_choice == 'Sentence Segmentation':
                 preds_list = []
                 test_data = uploaded_file.read()
                 for sent in test_data:
-                        print(sent)
+                        st.text(sent)
                         sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
                         preds_list.extend(sent_preds)
                 
