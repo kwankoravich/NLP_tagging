@@ -61,7 +61,8 @@ if model_choice == 'Sentence Segmentation':
                         preds_list.extend(sent_preds)
                 # st.text(preds_list[:10])
                 # raw_test_data = [x for x in [s[0] for s in sent]]
-                        raw_data = [x for x in [s[0] for s in sent]]
+                        # raw_data = [x for x in [s[0] for s in sent]]
+                        raw_data = [s[0] for s in sent]
                         raw_test_data.extend(raw_data)
                 # st.text(raw_test_data[:10])
                 preds_list = list(zip(raw_test_data, preds_list))
