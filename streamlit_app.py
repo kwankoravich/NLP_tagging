@@ -53,10 +53,11 @@ if model_choice == 'Sentence Segmentation':
 
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
                 test_data = stringio.read()
-                st.text(test_data)
+                # st.text(test_data)
                 for sent in test_data:
                         # st.text(sent)
-                        sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
+                        # sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
+                        sent_preds = ct.tag(sent)
                         preds_list.extend(sent_preds)
                 
                 raw_test_data = [x for x in [s[0] for s in sent]]
