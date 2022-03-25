@@ -53,6 +53,7 @@ if model_choice == 'Sentence Segmentation':
 
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
                 test_data = stringio.readlines()
+                test_data = map(lambda x: x.replace('\n',''), test_data)
                 st.text(test_data[:10])
                 st.text(len(test_data))
                 for sent in test_data:
