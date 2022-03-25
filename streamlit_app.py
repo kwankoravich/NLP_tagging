@@ -54,8 +54,8 @@ if model_choice == 'Sentence Segmentation':
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
                 test_data = stringio.readlines()
                 test_data = list(map(lambda x: x.replace('\n',''), test_data))
-                st.text(test_data[:10])
-                st.text(len(test_data))
+                # st.text(test_data[:10])
+                # st.text(len(test_data))
                 # for sent in test_data:
                 # for sent in stringio.read():
                         # st.text(sent)
@@ -89,19 +89,14 @@ if model_choice == 'Name Entity Recognition':
         if submit:
                 # st.balloons()
                 ct = CRFTagger()
-                # ct = sklearn_crfsuite.CRF()
                 ct.set_model_file('model/crf_ner.tagger')
                 
                 #Prediction
                 preds_list = []
                 stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-                test_data = stringio.read()
-                for sent in test_data:
-                        sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
-                        preds_list.extend(sent_preds)
-                
-                raw_test_data = [x for x in [s[0] for s in sent]]
-                preds_list = list(zip(raw_test_data, preds_list))
+                test_data = stringio.readlines()
+                test_data = list(map(lambda x: x.replace('\n',''), test_data))
+                preds_list.extend(ct.tag(test_data))
                 st.text(preds_list[:10])
 
 
