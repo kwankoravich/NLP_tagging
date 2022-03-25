@@ -59,9 +59,10 @@ if model_choice == 'Sentence Segmentation':
                 for sent in test_data:
                 # for sent in stringio.read():
                         # st.text(sent)
-                        sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
-                        preds_list.extend(sent_preds)
+                        # sent_preds = [x[1] for x in ct.tag([s[0] for s in sent])]
+                        # preds_list.extend(sent_preds)
                         # preds_list = [x[1] for x in ct.tag(sent)]
+                        preds_list.append(ct.tag(sent))
                 # st.text(len(preds_list))
                 # st.text(preds_list[:10])
                 raw_test_data = [x for x in [s[0] for s in sent]]
